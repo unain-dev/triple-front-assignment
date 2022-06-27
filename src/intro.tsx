@@ -1,13 +1,8 @@
-import styled from 'styled-components'
-
 import IntroModule from './components/organisms/intro/introModule'
 import logo from './asset/img/triple2x.png'
 import playstore from './asset/img/play-store2x.png'
 import apple from './asset/img/badge-apple4x.png'
-
-const Container = styled.div`
-  width: 1200px;
-`
+import IntroTemplate from './template/introTemplate'
 
 const Intro = () => {
   const data = {
@@ -40,14 +35,18 @@ const Intro = () => {
     indecators: ['350만 명의 사용자', '21만 개의 리뷰', '650만 개의 저장'],
   }
 
+  const args = {
+    introModule: IntroModule({
+      introImgInfo: data.introImgInfo,
+      awards: data.awards,
+      indecators: data.indecators,
+    }),
+  }
+
   return (
-    <Container>
-      <IntroModule
-        introImgInfo={data.introImgInfo}
-        awards={data.awards}
-        indecators={data.indecators}
-      />
-    </Container>
+    <body>
+      <IntroTemplate introModule={args.introModule} />
+    </body>
   )
 }
 
