@@ -6,19 +6,17 @@ import Indecators from '../../molecules/indecators/indecators'
 
 const IntroContainer = styled.div`
   display: flex;
+  // justify-content: center;
+  justify-content: space-between;
 `
-const IntroImgWrapper = styled.div`
-  flex: 1;
-`
+const IntroImgWrapper = styled.div``
 const ColumWrapper = styled.div`
   flex-direction: colum;
-  margin-left: 80px;
-  flex: 1;
+  // margin-left: 80px;
 `
 const IndecatorsWrapper = styled.div``
 const AwardWrapper = styled.div`
   display: flex;
-  margin: 50px 0px 140px 0px;
 `
 
 const IntroModule = ({ introImgInfo, indecators, awards }) => {
