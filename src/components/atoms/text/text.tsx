@@ -2,14 +2,20 @@ import styled from 'styled-components'
 
 export interface TextProps {
   desc: string
+  fontColor?: string
 }
 
-const Text = styled.div`
+export interface TextStyleProps {
+  fontColor?: string
+}
+
+const Text = styled.div<TextStyleProps>`
   size: 10px;
+  color: ${(props) => props.fontColor};
 `
 
-const text = ({ desc }: TextProps) => {
-  return <Text>{desc}</Text>
+const text = ({ desc, fontColor = 'black' }: TextProps) => {
+  return <Text fontColor={fontColor}>{desc}</Text>
 }
 
 export default text

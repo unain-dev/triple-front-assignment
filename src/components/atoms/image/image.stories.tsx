@@ -1,4 +1,4 @@
-import Logo from '../../../asset/triple2x.png'
+import Logo from '../../../asset/img/triple2x.png'
 
 import Image from './image'
 
