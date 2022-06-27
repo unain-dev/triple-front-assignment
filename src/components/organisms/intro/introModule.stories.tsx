@@ -2,7 +2,7 @@ import logo from '../../../asset/img/triple2x.png'
 import playstore from '../../../asset/img/play-store2x.png'
 import apple from '../../../asset/img/badge-apple4x.png'
 
-import Intro from './intro'
+import Intro from './introModule'
 
 export default {
   title: 'Organisms/Intro',

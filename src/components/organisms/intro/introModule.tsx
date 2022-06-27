@@ -21,7 +21,7 @@ const AwardWrapper = styled.div`
   margin: 50px 0px 140px 0px;
 `
 
-const Intro = ({ introImgInfo, indecators, awards }) => {
+const IntroModule = ({ introImgInfo, indecators, awards }) => {
   return (
     <IntroContainer>
       <IntroImgWrapper>
@@ -42,4 +42,4 @@ const Intro = ({ introImgInfo, indecators, awards }) => {
   )
 }
 
-export default Intro
+export default IntroModule
