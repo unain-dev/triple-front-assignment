@@ -1,4 +1,22 @@
 ## 고민의 기록
 
-1. Typescript의 props 레벨
-   - 각 필드의 특성을 가지는 레벨은 molecule 레벨이므로, 특성에 종속되는 스타일 속성들(font-size, color 등)은 molecule 레벨에서 props로 내려주자.
+### 1. 컴포넌트 단위
+
+- atom : 컴포넌트 동작의 최소 단위(button, input 등...)
+- molecule : atom의 set. molecule 단위부터 도메인 컴포넌트 특성이 적용되도록 함.
+- organism : atom + molecule.
+- template : 각 하위 단위 컴포넌트의 배치를 담당하며, grid 이 외의 컴포넌트 로직에는 관여하지 않는 상태로 page에 그려짐.
+- page : 최종적으로 하위 단위의 컴포넌트를 렌더링하여 사용자에게 보여지도록 하는 단위.
+
+  > 위와 같은 컴포넌트 dividing은 page 단위에서 또 다른 organism 컴포넌트들이 추가될 가능성을 예상해두고 설계 했으므로, 현재 구현해야하는 컴포넌트 set을 하나의 organism으로 묶고, 이 하나의 organism 컴포넌트만 렌더링 되도록 설계 했습니다.
+
+  > 비동기 통신이 추 후에 추가된다면, page 단위에서 일어나며 해당 내용은 props로 하위 컴포넌트로 전달 되도록 설계 했습니다.
+
+### 2. 비동기 통신을 어디까지 고려하여 설계할 것인가?
+
+- 비동기 통신을 고려해야하는 요소 : 가변적 요소들
+  - 바뀔 수 있는 텍스트(기준 연도, 기준 지표 등)
+
+### 3. Typescript의 props 레벨
+
+- 각 필드의 특성을 가지는 레벨은 molecule 레벨이므로, 특성에 종속되는 스타일 속성들(font-size, color 등)은 molecule 레벨에서 props로 내려주자.
