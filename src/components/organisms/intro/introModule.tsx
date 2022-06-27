@@ -29,7 +29,10 @@ const IntroModule = ({ introImgInfo, indecators, awards }) => {
       </IntroImgWrapper>
       <ColumWrapper>
         <IndecatorsWrapper>
-          {indecators && <Indecators indecators={indecators} />}
+          {indecators &&
+            indecators.map((indecator, index) => (
+              <Indecators key={index} indecator={indecator} />
+            ))}
         </IndecatorsWrapper>
         <AwardWrapper>
           {awards &&

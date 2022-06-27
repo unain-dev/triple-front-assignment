@@ -1,39 +1,44 @@
-import { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import Text from '../../atoms/text/text'
 
 interface IndecatorsProps {
-  indecators: string[]
+  indecator: string
 }
 
-const Sindecator = styled.div`
+const IndecatorWrppaer = styled.div`
   margin-bottom: 20px;
 `
 
-const Indecators = ({ indecators }: IndecatorsProps) => {
+const Indecators = ({ indecator }: IndecatorsProps) => {
   // 추 후 custom hook으로 리팩토링 필요
-  const [nodeIndecators, setNodeIndecators] = useState<ReactNode[]>([])
-
-  useEffect(() => {
-    const nodes = indecators.map((indecator: string, index: number) => {
-      const end = indecator.indexOf('의')
-      return (
-        <Sindecator key={index}>
-          <strong>{indecator.substr(0, end)}</strong>
-          {indecator.substr(end, indecator.length)}
-        </Sindecator>
-      )
-    })
-    setNodeIndecators([nodes])
-  }, [indecators])
+  const storngStartIdx = indecator.indexOf('만')
+  const strongEndIdx = indecator.indexOf('의')
 
   return (
-    <div>
-      {nodeIndecators.map((indecator, index) => (
-        <Text key={index} desc={indecator} fontSize="32px" />
-      ))}
-    </div>
+    <>
+      {indecator !== undefined && (
+        <IndecatorWrppaer>
+          <strong>
+            <Text
+              desc={indecator.substring(0, storngStartIdx)}
+              fontSize="32px"
+              fontColor="rgb(58, 58, 58)"
+            />
+            <Text
+              desc={indecator.substring(storngStartIdx, strongEndIdx)}
+              fontSize="32px"
+              fontColor="rgb(58, 58, 58)"
+            />
+          </strong>
+          <Text
+            desc={indecator.substring(strongEndIdx, indecator.length)}
+            fontSize="32px"
+            fontColor="rgb(58, 58, 58)"
+          />
+        </IndecatorWrppaer>
+      )}
+    </>
   )
 }
 

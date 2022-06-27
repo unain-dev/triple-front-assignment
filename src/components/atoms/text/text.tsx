@@ -10,7 +10,7 @@ export interface TextProps extends TextStyleProps {
   desc: string | ReactNode
 }
 
-const Stext = styled.div<TextStyleProps>`
+const Stext = styled.span<TextStyleProps>`
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.fontColor};
 `
