@@ -13,5 +13,4 @@ export const Primary = Template.bind({})
 Primary.args = {
   imgPath: logo,
   desc: '2019년 2월 기준',
-  fontColor: 'grey',
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Image from '../../atoms/image/image'
-import Text from '../../atoms/text/text'
+import Image, { ImgProps } from '../../atoms/image/image'
+import Text, { TextProps } from '../../atoms/text/text'
 
 const IntroContainer = styled.div`
   position: relative;
@@ -14,15 +14,17 @@ const TextContainer = styled.div`
   bottom: -30px;
 `
 
-const introImg = ({ imgPath, desc, fontColor }) => {
+interface IntroImgProps extends TextProps, ImgProps {}
+
+const IntroImg = ({ imgPath, desc }: IntroImgProps) => {
   return (
     <IntroContainer>
       <Image imgPath={imgPath} />
       <TextContainer>
-        <Text desc={desc} fontColor={fontColor} />
+        <Text desc={desc} fontColor="grey" fontSize="15px" />
       </TextContainer>
     </IntroContainer>
   )
 }
 
-export default introImg
+export default IntroImg

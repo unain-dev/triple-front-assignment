@@ -1,22 +1,26 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-export interface TextProps {
-  desc: string | ReactNode
-  fontColor?: string
-}
-
 export interface TextStyleProps {
   fontColor?: string
+  fontSize?: string
 }
 
-const Text = styled.div<TextStyleProps>`
-  size: 10px;
+export interface TextProps extends TextStyleProps {
+  desc: string | ReactNode
+}
+
+const Stext = styled.div<TextStyleProps>`
+  font-size: ${(props) => props.fontSize};
   color: ${(props) => props.fontColor};
 `
 
-const text = ({ desc, fontColor = 'black' }: TextProps) => {
-  return <Text fontColor={fontColor}>{desc}</Text>
+const text = ({ desc, fontColor = 'black', fontSize = '12px' }: TextProps) => {
+  return (
+    <Stext fontColor={fontColor} fontSize={fontSize}>
+      {desc}
+    </Stext>
+  )
 }
 
 export default text
