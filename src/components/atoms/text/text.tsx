@@ -1,7 +1,8 @@
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 export interface TextProps {
-  desc: string
+  desc: string | ReactNode
   fontColor?: string
 }
 
